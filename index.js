@@ -138,14 +138,37 @@ let triRow = '';
 // 1. Diamond
 
 
+// ************************
+// ****REVERSE ATTEMPT*****
+// ************************
 
+/*
+function reverseTriangle(height) {
+  let reversed = makeIsoscelesTriangle(height);
+  let revArray = reversed.split('').reverse().join('');
+
+  return revArray;
+}
+
+console.log(reverseTriangle(5));
+
+*/
+
+
+
+// ************************
+// *****INVERT ATTEMPT*****
+// ************************
 
 function makeInvertedIsoscelesTriangle(height) {
 
 let invTriRow = '';
 
   for (q=0; q < height; q++) {
-    invTriRow += makeSpaceLine((2 / q + 1), (height - q)) + '\n';
+    if (q < height -1) {
+      invTriRow += makeSpaceLine(q, (height - (2 * q + 1))) + '\n';
+  } else {
+    invTriRow += makeSpaceLine(q, (height - q));
   }
 
   return invTriRow;
@@ -153,4 +176,4 @@ let invTriRow = '';
 }
 
 
-console.log(makeInvertedIsoscelesTriangle(5));
+console.log(makeInvertedIsoscelesTriangle(7));
